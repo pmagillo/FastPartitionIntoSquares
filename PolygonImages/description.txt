@@ -1,0 +1,9 @@
+These are the images, containing polygons, that are used in the experiments of the paper.
+They are given as png images.
+They can be converted to binary files with Python program PNGtoBinary.py 
+or by create4images.py, which does the same but creates also three rotated 
+copies of the image (as done in the paper).
+
+The other test set used in the papes (Acer leaves) is available at
+https://zoi.utia.cas.cz/index.php/edit-item/99-zoi-research-projects-past/268-tree-leaf-database-mew2019
+and each of them was converted to a binary file with PNGtoBinary.py 
