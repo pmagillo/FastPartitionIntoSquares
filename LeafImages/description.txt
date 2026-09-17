@@ -1,0 +1,9 @@
+This is one of the images, representing Acer leaves, that are used in the experiments of the paper.
+It is provided as an example.
+
+The complete test set is available at
+https://zoi.utia.cas.cz/index.php/edit-item/99-zoi-research-projects-past/268-tree-leaf-database-mew2019
+and each image was converted to a binary file with PNGtoBinary.py 
+
+The file EXAMPLE.TXT, provided in the parent directory, explains how experiments were performed 
+on each image.
