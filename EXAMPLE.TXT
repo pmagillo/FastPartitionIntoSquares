@@ -1,0 +1,75 @@
+These are the instructions to repeat the experiments performed in the paper.
+
+====Before starting===
+
+Compile the decomposition programs:
+
+ cd C_Programs
+ make
+
+This creates the seven executables
+applyDT applyMDT applyQTR applySCAN applyFAST1 applyFAST2 applyFAST3
+corresponding to:
+- Distance transform
+- Modified distance transform
+- Quadtree
+- Greedy scan
+- New algorithms 1, 2, 3.
+
+====For the Acer leaves===
+
+We give one image as example in directory LeafImages. 
+The other images must be downloaded from
+https://zoi.utia.cas.cz/index.php/edit-item/99-zoi-research-projects-past/268-tree-leaf-database-mew2019
+
+Create binary file for the image:
+
+ cd PY_Programs
+ python3 PNGtoBinary.py ../LeafImages/Acer_negundo_5.png ../B_Acer_negundo_5.binary
+
+This creates the binary file B_Acer_negundo_5.binary encoding the image
+in the parent directory of PY_Programs.
+
+Apply a decomposition algorithm, for example the distance transform:
+
+ cd C_Programs
+ ./applyDT ../B_Acer_negundo_5.binary
+
+This creates in the current directory the file csquares.txt encoding 
+the decomposition into squares.
+
+Note: we can disable the generation of the output file with
+ ./applyDT  ../B_Acer_negundo_5.binary NO
+or give a chosen name to it with
+ ./applyDT ../B_Acer_negundo_5.binary output_name
+
+Visualize the decomposition:
+
+ cd PY_Programs
+ python3 seeSquares.py ../C_Programs/csquares.txt
+
+====For the polygonal images===
+
+All these images are artificially generated and they are provided in 
+directory PolygonImages.
+Each of them has been considered in the four possible rotations by an
+angle multiple of 90 degrees.
+
+Create binary file for the image:
+
+ cd PY_Programs
+ python3 create4images.py ../PolygonImages/polygon1_BW.png ../B_polygon1
+
+This creates the four files B_polygon1_R0.binary, B_polygon1_R1.binary,
+B_polygon1_R2.binary, B_polygon1_R3.binary in the parent directory of the
+current one. They correspond to the given image rotated 0, 90, 180, 270
+degrees.
+
+Apply a decomposition algorithm, for example the distance transform,
+to each rotated image, for example R0:
+
+ cd C_Programs
+ ./applyDT ../B_polygon1_R0.binary
+
+And proceed as described for the Acer leaves.
+
